@@ -39,37 +39,24 @@
             <td><?= h($room->modified) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Showtimes') ?></h4>
-        <?php if (!empty($room->showtimes)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Movie Id') ?></th>
-                <th scope="col"><?= __('Room Id') ?></th>
-                <th scope="col"><?= __('Start') ?></th>
-                <th scope="col"><?= __('End') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($room->showtimes as $showtimes): ?>
-            <tr>
-                <td><?= h($showtimes->id) ?></td>
-                <td><?= h($showtimes->movie_id) ?></td>
-                <td><?= h($showtimes->room_id) ?></td>
-                <td><?= h($showtimes->start) ?></td>
-                <td><?= h($showtimes->end) ?></td>
-                <td><?= h($showtimes->created) ?></td>
-                <td><?= h($showtimes->modified) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Showtimes', 'action' => 'view', $showtimes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Showtimes', 'action' => 'edit', $showtimes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Showtimes', 'action' => 'delete', $showtimes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $showtimes->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
+        <?php
+            foreach ($showtimes as $e)
+            {
+                
+                echo "Nom du film: ".$e->movie->name; 
+                echo "</br>" ; 
+                echo "Debut du film : ".$e->start;
+                echo "</br>" ;  
+                echo "Fin du film : ".$e->end;
+                echo "</br>" ; 
+                echo "Le film a été crée le : ".$e->created;
+                echo "</br>" ; 
+                echo "Le film a été rajouté le : ".$e->modified;
+                echo "</br>";
+                echo "-----------------------------" ; 
+                echo "</br>";
+            };
+        
+        ?>
     </div>
 </div>
